@@ -1,0 +1,10 @@
+.hello_world{
+    /* position:fixed; */
+    display: flex;
+    border: 2px green solid;
+    z-index: 20;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}

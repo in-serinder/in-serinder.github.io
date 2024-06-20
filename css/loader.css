@@ -1,0 +1,18 @@
+.background{
+    position: fixed;
+    background-color: #f7f7f7;
+}
+
+.title{
+    /* position: fixed; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px green solid;
+    height: 100px;
+    width: 350px;
+}
+
+.text{
+    font-weight: bold;
+}
