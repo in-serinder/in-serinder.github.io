@@ -22,7 +22,7 @@ $(document).ready(function(){
                 .then(response => response.text())
                 .then(data => {
                     const config = jsyaml.load(data);
-                    console.log(config.test.msg);
+                   // console.log(config.test.msg);
                 })
                 .catch(error => {
                     console.error('加载配置文件失败：', error);
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
             function update_process_lab(){
                 const cur_width=($left_process_cur.width()/$left_process_cur.parent().width())*100;
-                console.log(cur_width)
+                //console.log(cur_width)
                 $right_process_text.text(`${cur_width.toFixed(1)}%`);
                 $left_process_text.text(`${cur_width.toFixed(1)}%`);
 
