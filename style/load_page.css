@@ -1,0 +1,133 @@
+.load_body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    border: 2px solid red;
+    width: 100%;
+    /* base-win */
+    height: 100vh;
+
+
+    /*  */
+
+    align-items: center;
+
+}
+
+.load_cover_pane{
+    /* border: 2px solid blue ; */
+    position: relative;
+    width: 350px;
+
+    text-align: center;
+    z-index: 1;
+}
+
+.load_text{
+    letter-spacing: 1px;
+    color: #ffffff;
+    /* z-index: 4; */
+}
+
+
+.load_text2{
+    position: relative;
+    letter-spacing: 2px;
+    z-index: 3;
+}
+
+/* 预留 */
+.load_cover_pane.cover{
+position: absolute;
+z-index: 1;
+background-color: #000001;
+height: 100%;
+width: 1%;
+
+}
+
+.load_process_body{
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid black; */
+    height: 25px;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.load_process_body.text{
+    font-weight: bold;
+    font-size: 0.725em;
+}
+
+.load_process_body_left{
+    display: flex;
+    flex-direction: row;
+    
+    width: 50%;
+}
+
+.load_process_body_right{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+    /* background-color:  red; */
+}
+/*  */
+.load_process_body_left_index{
+    display: flex;
+    flex-direction: column;
+    /* background-color:  blue; */
+    height: 100%;
+    /*初始值 */
+    width: 5%;
+}
+.load_process_body_left_index_text{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    margin: 2px;
+    margin-right: 5px;
+    font-size: 0.725em;
+    height: 60%;
+}
+
+.load_process_body_left_index_process{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    background-color:  red;
+}
+
+
+
+
+
+.load_process_body_right_index{
+    display: flex;
+    flex-direction: column;
+    /* background-color:  red; */
+    height: 100%;
+    width: 5%;
+}
+
+
+.load_process_body_right_index_text{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin: 2px;
+    margin-left: 5px;
+    font-size: 0.725em;
+    height: 60%;
+}
+
+.load_process_body_right_index_process{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    background-color:  blue;
+}
