@@ -4,15 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SRC -->
+<<<<<<< HEAD
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <script src="./js/jquery-3.7.1.min.js"></script>
         <script src="./js/js-yaml.min.js"></script>
+=======
+    
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<!--         <script src="./js/jquery-3.7.1.min.js"></script> -->
+<!--         <script src="./js/js-yaml.min.js"></script> -->
+>>>>>>> 1c64391b3f680ff826f5cd2ba1388f87e3670092
         <link rel="stylesheet" href="./style/load_page.css">
 
 
 
         <!-- script -->
         <script>
+<<<<<<< HEAD
 // $(document).ready(function(){
 //         $(window).on('load', function(){
 //             fetch('config.yaml')
@@ -39,6 +48,21 @@
             }
 
             
+=======
+$(document).ready(function(){
+        $(window).on('load', function(){
+            fetch('config.yaml')
+                .then(response => response.text())
+                .then(data => {
+                    const config = jsyaml.load(data);
+                   // console.log(config.test.msg);
+                })
+                .catch(error => {
+                    console.error('加载配置文件失败：', error);
+                });
+        });
+    });
+>>>>>>> 1c64391b3f680ff826f5cd2ba1388f87e3670092
         </script>
     <title>Loading</title>
 
@@ -91,6 +115,34 @@
     <script>
         $(document).ready(function(){ //cover
 
+<<<<<<< HEAD
+=======
+            const $right_process_cur=$(".load_process_body_left_index")
+            const $left_process_cur=$(".load_process_body_right_index")
+
+            const $right_process_text=$("#load_left_lab")
+            const $left_process_text=$("#load_right_lab")
+
+
+            function update_process_lab(){
+                const cur_width=($left_process_cur.width()/$left_process_cur.parent().width())*100;
+                //console.log(cur_width)
+                $right_process_text.text(`${cur_width.toFixed(1)}%`);
+                $left_process_text.text(`${cur_width.toFixed(1)}%`);
+
+                if(cur_width>=100){
+                    return;
+                }
+                requestAnimationFrame(update_process_lab);
+            }
+
+            $('.load_text').animate({
+                        color: '#ffffff',
+                        letterSpacing:'4px'
+                    }, 1200, 'swing');
+            
+            
+>>>>>>> 1c64391b3f680ff826f5cd2ba1388f87e3670092
 
             $(window).on("load",function(){
 
