@@ -33,7 +33,7 @@
 
 .load_text2{
     position: relative;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     z-index: 3;
 }
 
@@ -99,7 +99,7 @@ width: 1%;
     display: flex;
     height: 40%;
     width: 100%;
-    background-color:  red;
+    background-color:  #0f0f0f;
 }
 
 
@@ -129,5 +129,5 @@ width: 1%;
     display: flex;
     height: 40%;
     width: 100%;
-    background-color:  blue;
+    background-color:  #0f0f0f;
 }
