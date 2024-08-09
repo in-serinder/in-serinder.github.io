@@ -138,20 +138,22 @@
     flex-direction: row;
     justify-content: center;
     flex-grow: 1;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .top_personal_introduct_contact_in{
     display: flex;
     flex-direction: row;
-    width: 30%;
-    border: 2px solid goldenrod;
+    width: 35%;
+    /* border: 2px solid goldenrod; */
 }
 
 .top_personal_introduct_contact_sub{
     display: flex;
     justify-content: center;
-    border: 2px solid purple;
+    border-top: 1px solid #6b6969;
+    border-bottom:1px solid #6b6969;
+    /* border: 2px solid purple; */
     height: 100%;
     width: 20%;
 }
