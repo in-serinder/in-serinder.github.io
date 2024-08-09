@@ -1,0 +1,48 @@
+personal_infomation:
+  name: "Serinder"
+  bio: "Eine dunkle Nacht gab mir schwarze Augen ,aber nutze ich sie Um nach Licht zu suchen"
+  profile_picture: "./_person_media/backgay_arch.jpg"
+  edu: "undergraduate"
+  backgroundimg: "./media/site_media/98616585_p0.png"
+
+analytics:
+  baidu_trackingid: "a323f111a030b0ac376730b68825b2bd"
+  google_trackingid: "G-KRGKY24GG5"
+
+personal_skills:
+  profession: "Amateur"
+  ps: "Amateur /3D Modeler/ Illustrator / Frontend Developer"
+  country: "China"
+  level_chinese: "Mother tongue"
+  level_english: 3
+  level_deusch: "A1"
+
+contact:
+  email: "in-serinder@outlook.com"
+  github: "in-serinder"
+  twitter: "DoubleHans45"
+  csdn: "afluos_serinder"
+  youtube: "UC2xdZrugWjhOi5x5w26Pblg"
+
+contact_site: #Url head
+  github: "https://github.com/"
+  twitter: "https://x.com/"
+  csdn: "https://blog.csdn.net/"
+  youtube: "https://www.youtube.com/channel/"
+
+contact_site_icon: #file source ./media/site_icon/
+  github: "GitHub.svg"
+  twitter: "twitter.svg"
+  csdn: "csdn.svg"
+  youtube: "youtube.svg"
+
+business_status:
+  IS_commission: false
+  CAD: false
+  blender_modeling: false
+  wechat_frontend: false
+  ad_design: false
+  deutsch: false
+
+test:
+  msg: "True dude/"

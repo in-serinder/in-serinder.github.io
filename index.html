@@ -1,59 +1,269 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>indexwebpage</title>
-<link rel="stylesheet" href="style/pacman.css">
-<style type="text/css">
-body {
-	background-color: #333333;
-}
-.top_text {
-	color: #FFF;
-}
-.top_text img {
-	text-align: center;
-}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/js-yaml.min.js"></script>
+    <script src="./js/addition.js"></script>
+    <script src="./js/sl.umd.js"></script>
+    <script src="./js/aos.js"></script>
+    <!-- script area -->
+    <script>
+        // ymal
+        fetch('config.yaml')
+            .then(response => response.text())
+            .then(data => {
+                const config = jsyaml.load(data);
+                // img
+                $("#toppage").css('background-image', `url(${config.personal_infomation.backgroundimg})`);
+                $("#toppage").css('background-size', 'cover');
+                console.log(config.personal_infomation.backgroundimg)
 
-.top {
-	color: #FFF;
-}
-	h4{
-			color: #FFF;
-		}
-	h3{
-		color:#fff;
-	}
 
-	h8{
-		color:	#bfbfbf;
-	}
-</style>
-<script src="js/pacman.js"></script>
+                $('#bio').text(config.personal_infomation.bio)
+                $('#profile_work').text(config.personal_skills.profession)
+                $('#profile_edu').text(config.personal_infomation.edu)
+                $('#profile_city').text(config.personal_skills.country)
+            })
+            .catch(error => {
+                console.error('加载配置文件失败：', error);
+            });
+        console.log(bio)
+    </script>
+
+    <!-- SRC -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="./style/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/main_page.css">
+    <link rel="stylesheet" href="./style/mian_page_rightpane.css">
+    <link rel="stylesheet" href="./style/main_page_toppane.css">
+    <link rel="stylesheet" href="./style/load_page.css">
+
 </head>
 
-<body><span class="top_text">
-<img src="archlinux-logo-light-90dpi.png" width="150" height="50" />
-</span>
+<body>
+    <div class="load_body_div">
+        <!-- cover -->
+        <div class="load_body">
 
-<span class="top">Wrielsee _ HOME 
-	<svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github">
-    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-</svg>
-<a href="https://github.com/in-serinder" target="_blank">Github</a>
-	</span>
-<hr width="80%" >
-	
-		<area>
-		<h3>Developing</h3>
-		<h4>Website under construction. Please have patience.</h4>
-		<h4>Website im Aufbau. Bitte haben Sie Geduld.</h4>
-		<h8>expected website file update time: June to August 2024<a href="//player.bilibili.com/player.html?aid=9857662&bvid=BV1Nx411D7jx&cid=16297004&p=1" target="_blank">.</a></h8>
+            <div class="load_cover_pane">
+                <!-- cover_pane -->
+                <div class="load_cover_pane cover">
+                    <!-- <h2 class="load_text2">Hello World !</h2> -->
+                </div>
+
+                <div class="load_text2">
+                    <h2 class="load_text" style="letter-spacing: 4px;">Hello World !</h2>
+                </div>
+            </div>
+
+            <!-- loadste -->
+            <div class="load_promp_text_pane_PARENT">
+                <div class="load_promp_text_pane">
+                    Resources loading...
+                </div>
+            </div>
+            <!-- 进度条 -->
+            <!-- 仅移动index -->
+
+            <div class="load_process_body">
+                <div class="load_process_body_left">
+                    <!-- left -->
+                    <div class="load_process_body_left_index">
+                        <div class="load_process_body_left_index_text">
+                            <label id="load_left_lab">%5</label>
+                        </div>
+                        <div class="load_process_body_left_index_process">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load_process_body_right">
+                    <!-- right -->
+                    <div class="load_process_body_right_index">
+                        <div class="load_process_body_right_index_text">
+                            <label id="load_right_lab">%5</label>
+                        </div>
+
+                        <div class="load_process_body_right_index_process">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () { //cover
 
 
-		<div>
-			<h2 id="p2" class="pacman1">C</h2>
-		</div>
-		
-		</body>
-		</html>
+                $(window).on("load", function () {
+
+                }, ) //窗口进入时 
+
+
+            })
+
+
+
+            const $right_process_cur = $(".load_process_body_left_index")
+            const $left_process_cur = $(".load_process_body_right_index")
+
+            const $right_process_text = $("#load_left_lab")
+            const $left_process_text = $("#load_right_lab")
+
+
+            function update_process_lab() {
+                const cur_width = ($left_process_cur.width() / $left_process_cur.parent().width()) * 100;
+                $right_process_text.text(`${cur_width.toFixed(1)}%`);
+                $left_process_text.text(`${cur_width.toFixed(1)}%`);
+
+                if (cur_width >= 100) {
+                    $('.load_body_div').fadeOut(1000)
+                    $('.main_page_body').fadeIn(1000)
+
+                    // console.log("sdsd")
+                    // $('.main_page_body').css('display', 'block');
+                    // $('.load_body_div').css('display', 'none');
+                    return;
+
+
+                }
+
+                requestAnimationFrame(update_process_lab);
+            }
+
+            // men
+            function loading_fade() {
+                $(".load_body_div").fadeOut(1000);
+
+            }
+
+
+
+
+            window.onload = function () {
+
+                $(".load_cover_pane.cover").animate({
+                    width: '100%',
+                    zIndex: '1'
+                }, 1200, 'swing');
+
+
+                $(".load_process_body_left_index").animate({
+                    width: '100%'
+                }, 1600, 'swing')
+
+                $(".load_process_body_right_index").animate({
+                    width: '100%'
+                }, 1600, 'swing')
+
+
+                $(".load_cover_pane.cover").animate({
+                    width: '100%',
+                    zIndex: '1'
+                }, 1200, 'swing');
+
+
+                $('.load_text').animate({
+                    letterSpacing: '5px',
+                    color: '#ffffff',
+                }, 1400, 'swing');
+
+                update_process_lab();
+
+
+
+                $(".load_promp_text_pane").fadeOut(1000);
+
+                setTimeout(function () {
+                    $(".load_promp_text_pane").fadeIn(1000);
+                }, 1200)
+
+            }
+        </script>
+
+
+
+        <!-- 资源加载窗口结束 -->
+        <!-- 主要 信息 -->
+    </div>
+
+    <div class="main_page_body">
+        <!-- 顶部导航栏2 窄时 -->
+        <div class="top_pane_body" id="toppage">
+            <div>
+                <div class="top_personal_introduct">
+                    <div class="top_personal_introduct_person">
+                        <img src="./_person_media/backgay_arch.jpg" alt="person_img"
+                            class="top_personal_introduct_personimg">
+                    </div>
+                    <div class="top_personal_introduct_personbio">
+                        <div class="top_personal_introduct_personbio_text" id="bio"></div>
+                    </div>
+                    <div class="top_personal_introduct_personprofile">
+                        <!-- 简信息 -->
+                        <div class="top_personal_introduct_current">
+                            <div class="top_personal_introduct_currentbox"></div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_work"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_work.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_edu"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_edu.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_city"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_city.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox"></div>
+                        </div>
+                        <!-- skill -->
+                        <div class="top_personal_introduct_skill">
+                            <div class="top_personal_introduct_skill_langlevel"></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_nav_body">
+                    <ul class="top_nav_body_content">
+                        <li id="about">About</li>
+                        <li id="post">Post</li>
+                        <li is="commission">Commission</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        </script>
+
+        <!-- 右侧个人及其导航栏1 敞时-->
+        <div class="right_pane_body">
+            <div>
+
+
+            </div>
+        </div>
+
+        <script>
+            loadlangfile('en')
+        </script>
+    </div>
+</body>
+
+</html>

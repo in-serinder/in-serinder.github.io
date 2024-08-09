@@ -1,0 +1,146 @@
+.top_pane_body{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 340px;
+    /* background-color:#181737; */
+    /* background-image: url(../media/site_media/98616585_p0.png); */
+    background-size: cover;
+    /* border: 2px solid purple; */
+    justify-content: center;
+    box-shadow: 3px 3px 2px rgb(96, 95, 95);
+    z-index: 1;
+}
+
+.top_nav_body{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 35px;
+    border: 2px solid red;
+}
+
+.top_nav_body li{
+    font-weight: bold;
+    font-size: 0.925em;
+    margin-left: 15px;
+    display: inline;
+    color: #f0f0f0;
+    font-family: "Sans Serif" "楷体", "黑体";
+
+}
+
+.top_nav_body_content{
+    list-style-type: none;
+}
+
+
+/* 个人展示页 */
+
+.top_personal_introduct{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.top_personal_introduct_person{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+
+    height: 200px;
+}
+
+.top_personal_introduct_personimg{
+    border: 1px solid  #030303;
+    width: 120px;
+    height: 120px;
+    margin-top: 25px;
+    border-radius: 50%;
+}
+
+.top_personal_introduct_personbio{
+    display: flex;
+     /* border: 2px solid yellow; */
+    height: 20px;
+    justify-content: center;
+   width: auto;
+}
+
+.top_personal_introduct_personbio_text{
+    display: flex;
+     /* border: 2px solid yellow; */
+    height: 20px;
+    color: #f0f0f0;
+    justify-content: center;
+    /* width: calc(100% - 20px); */
+    border-bottom: 1px solid #6b6969;
+}
+
+.top_personal_introduct_personprofile{
+    display: flex;
+    flex-direction: column;
+   
+    flex-grow: 1;
+}
+
+.top_personal_introduct_current{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid  blue; */
+    height: 40px;
+}
+
+.top_personal_introduct_currentbox{
+    display: flex;
+    flex-direction: row-reverse;
+    /* border: 2px solid black; */
+    width: 20%;
+}
+
+.top_personal_introduct_currentboxin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    margin-left: 10px;
+    /* border: 2px solid red; */
+    height: 100%;
+    font-size: 1.125em;
+    color: #f0f0f0;
+    
+}
+
+.top_personal_introduct_currentboxin2{
+    display: flex;
+    width: 15%;
+    
+    height: 100%;
+    justify-content: right;
+    
+    
+}
+
+.top_personal_introduct_currentboxin2_img{
+    width: 55%;
+    /* height: 30px; */
+}
+
+
+
+
+.top_personal_introduct_skill{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    border: 2px solid green;
+}
+
+.top_personal_introduct_skill_langlevel{
+    width: 20%;
+    border: 2px solid goldenrod;
+}
