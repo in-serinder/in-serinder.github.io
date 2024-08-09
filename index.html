@@ -204,13 +204,30 @@
                 <div class="top_personal_introduct">
                     <div class="top_personal_introduct_person">
                         <!-- <div class="top_personal_introduct_personimg" id="profile_pitc"></div> -->
-                        <img src="./_person_media/blackguy_arch.png" alt="" class="top_personal_introduct_personimg"
-                            id="profile_pitc">
+                        <img src="./media/_person_media/blackguy_arch.png" alt=""
+                            class="top_personal_introduct_personimg" id="profile_pitc">
                     </div>
                     <div class="top_personal_introduct_personbio">
                         <div class="top_personal_introduct_personbio_text" id="bio"></div>
                     </div>
                     <div class="top_personal_introduct_personprofile">
+
+                        <script>
+                            // ymal
+                            fetch('config.yaml')
+                                .then(response => response.text())
+                                .then(data => {
+                                    const config = jsyaml.load(data);
+                                    // img
+                                    $(".top_personal_introduct_personimg").css('src', config.personal_infomation
+                                        .profile_picture);
+
+                                    $('#profile_city').text(config.personal_skills.country)
+                                })
+                                .catch(error => {
+                                    console.error('加载配置文件失败：', error);
+                                });
+                        </script>
                         <!-- 简信息 -->
                         <div class="top_personal_introduct_current">
                             <div class="top_personal_introduct_currentbox"></div>
