@@ -1,0 +1,7 @@
+.main_page_body{
+    height: 100vh;
+    width: 100%;
+    border: solid 2px red;
+    display: none;
+    overflow: hidden;
+}

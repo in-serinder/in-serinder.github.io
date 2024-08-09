@@ -1,0 +1,9 @@
+.right_pane_body{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    width: 300px;
+    /* border: 2px solid blue; */
+    border-right: 1px solid #030303;
+    display: none;
+}

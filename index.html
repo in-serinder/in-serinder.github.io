@@ -1,165 +1,269 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SRC -->
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        <script src="./js/jquery-3.7.1.min.js"></script>
-        <script src="./js/js-yaml.min.js"></script>
-        <link rel="stylesheet" href="./style/load_page.css">
-
-
-
-        <!-- script -->
-        <script>
-// $(document).ready(function(){
-//         $(window).on('load', function(){
-//             fetch('config.yaml')
-//                 .then(response => response.text())
-//                 .then(data => {
-//                     const config = jsyaml.load(data);
-//                 })
-//                 .catch(error => {
-//                     console.error('加载配置文件失败：', error);
-//                 });
-//         });
-//     });
-
-// 兼容性
-
-            if(typeof jQuery != 'undefined'){
-                console.log('兼容')
-            }else{
-                console.log('不兼容')
-            }
-
-            window.onload = function(){
-                console.log("loaded")
-            }
-
-            
-        </script>
-    <title>Loading</title>
-
-</head>
-<body>
-    <!-- cover -->
-    <div class="load_body">
-
-        <div class="load_cover_pane">
-                <!-- cover_pane -->
-            <div class="load_cover_pane cover">
-                <!-- <h2 class="load_text2">Hello World !</h2> -->
-            </div>
-
-            <div class="load_text2">
-                <h2 class="load_text" style="letter-spacing: 4px;">Hello World !</h2>
-            </div>    
-        </div>
-
-    <!-- 进度条 -->
-    <!-- 仅移动index -->
-
-    <div class="load_process_body">
-        <div class="load_process_body_left">
-            <!-- left -->
-            <div class="load_process_body_left_index">
-                <div class="load_process_body_left_index_text">
-                    <label id="load_left_lab">%5</label>
-                </div>
-                <div class="load_process_body_left_index_process">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="load_process_body_right">
-            <!-- right -->
-            <div class="load_process_body_right_index">
-                <div class="load_process_body_right_index_text">
-                    <label id="load_right_lab">%5</label>
-                </div>
-
-                <div class="load_process_body_right_index_process">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/js-yaml.min.js"></script>
+    <script src="./js/addition.js"></script>
+    <script src="./js/sl.umd.js"></script>
+    <script src="./js/aos.js"></script>
+    <!-- script area -->
     <script>
-        $(document).ready(function(){ //cover
+        // ymal
+        fetch('config.yaml')
+            .then(response => response.text())
+            .then(data => {
+                const config = jsyaml.load(data);
+                // img
+                $("#toppage").css('background-image', `url(${config.personal_infomation.backgroundimg})`);
+                $("#toppage").css('background-size', 'cover');
+                console.log(config.personal_infomation.backgroundimg)
 
 
-            $(window).on("load",function(){
-
-        },
-   )    //窗口进入时 
-
-   
-    })
-
-
-
-        const $right_process_cur=$(".load_process_body_left_index")
-        const $left_process_cur=$(".load_process_body_right_index")
-
-        const $right_process_text=$("#load_left_lab")
-        const $left_process_text=$("#load_right_lab")
-
-
-        function update_process_lab(){
-            const cur_width=($left_process_cur.width()/$left_process_cur.parent().width())*100;
-            $right_process_text.text(`${cur_width.toFixed(1)}%`);
-            $left_process_text.text(`${cur_width.toFixed(1)}%`);
-
-            if(cur_width>=100){
-                return;
-            }
-
-            requestAnimationFrame(update_process_lab);
-        }
-
-
-
-
-    window.onload =function(){
-
-        $(".load_cover_pane.cover").animate({
-                    width: '100%',
-                    zIndex: '1'
-                },1200,'swing');
-
-        $('.load_text').animate({
-                        color: '#ffffff',
-                        letterSpacing:'4px'
-                    }, 1600, 'swing');
-
-        $(".load_process_body_left_index").animate({
-                    width:'100%'
-                },1600,'swing')
-
-                $(".load_process_body_right_index").animate({
-                    width:'100%'
-                },1600,'swing')
-
-
-        $(".load_cover_pane.cover").animate({
-                    width: '100%',
-                    zIndex: '1'
-                },1200,'swing');
-
-                update_process_lab();
-    }
-
-
-        
+                $('#bio').text(config.personal_infomation.bio)
+                $('#profile_work').text(config.personal_skills.profession)
+                $('#profile_edu').text(config.personal_infomation.edu)
+                $('#profile_city').text(config.personal_skills.country)
+            })
+            .catch(error => {
+                console.error('加载配置文件失败：', error);
+            });
+        console.log(bio)
     </script>
 
+    <!-- SRC -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="./style/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/main_page.css">
+    <link rel="stylesheet" href="./style/mian_page_rightpane.css">
+    <link rel="stylesheet" href="./style/main_page_toppane.css">
+    <link rel="stylesheet" href="./style/load_page.css">
+
+</head>
+
+<body>
+    <div class="load_body_div">
+        <!-- cover -->
+        <div class="load_body">
+
+            <div class="load_cover_pane">
+                <!-- cover_pane -->
+                <div class="load_cover_pane cover">
+                    <!-- <h2 class="load_text2">Hello World !</h2> -->
+                </div>
+
+                <div class="load_text2">
+                    <h2 class="load_text" style="letter-spacing: 4px;">Hello World !</h2>
+                </div>
+            </div>
+
+            <!-- loadste -->
+            <div class="load_promp_text_pane_PARENT">
+                <div class="load_promp_text_pane">
+                    Resources loading...
+                </div>
+            </div>
+            <!-- 进度条 -->
+            <!-- 仅移动index -->
+
+            <div class="load_process_body">
+                <div class="load_process_body_left">
+                    <!-- left -->
+                    <div class="load_process_body_left_index">
+                        <div class="load_process_body_left_index_text">
+                            <label id="load_left_lab">%5</label>
+                        </div>
+                        <div class="load_process_body_left_index_process">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load_process_body_right">
+                    <!-- right -->
+                    <div class="load_process_body_right_index">
+                        <div class="load_process_body_right_index_text">
+                            <label id="load_right_lab">%5</label>
+                        </div>
+
+                        <div class="load_process_body_right_index_process">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () { //cover
 
 
-    <!-- 资源加载窗口结束 -->
-    <!-- 主要 信息 -->
+                $(window).on("load", function () {
 
-</body></html>
+                }, ) //窗口进入时 
+
+
+            })
+
+
+
+            const $right_process_cur = $(".load_process_body_left_index")
+            const $left_process_cur = $(".load_process_body_right_index")
+
+            const $right_process_text = $("#load_left_lab")
+            const $left_process_text = $("#load_right_lab")
+
+
+            function update_process_lab() {
+                const cur_width = ($left_process_cur.width() / $left_process_cur.parent().width()) * 100;
+                $right_process_text.text(`${cur_width.toFixed(1)}%`);
+                $left_process_text.text(`${cur_width.toFixed(1)}%`);
+
+                if (cur_width >= 100) {
+                    $('.load_body_div').fadeOut(1000)
+                    $('.main_page_body').fadeIn(1000)
+
+                    // console.log("sdsd")
+                    // $('.main_page_body').css('display', 'block');
+                    // $('.load_body_div').css('display', 'none');
+                    return;
+
+
+                }
+
+                requestAnimationFrame(update_process_lab);
+            }
+
+            // men
+            function loading_fade() {
+                $(".load_body_div").fadeOut(1000);
+
+            }
+
+
+
+
+            window.onload = function () {
+
+                $(".load_cover_pane.cover").animate({
+                    width: '100%',
+                    zIndex: '1'
+                }, 1200, 'swing');
+
+
+                $(".load_process_body_left_index").animate({
+                    width: '100%'
+                }, 1600, 'swing')
+
+                $(".load_process_body_right_index").animate({
+                    width: '100%'
+                }, 1600, 'swing')
+
+
+                $(".load_cover_pane.cover").animate({
+                    width: '100%',
+                    zIndex: '1'
+                }, 1200, 'swing');
+
+
+                $('.load_text').animate({
+                    letterSpacing: '5px',
+                    color: '#ffffff',
+                }, 1400, 'swing');
+
+                update_process_lab();
+
+
+
+                $(".load_promp_text_pane").fadeOut(1000);
+
+                setTimeout(function () {
+                    $(".load_promp_text_pane").fadeIn(1000);
+                }, 1200)
+
+            }
+        </script>
+
+
+
+        <!-- 资源加载窗口结束 -->
+        <!-- 主要 信息 -->
+    </div>
+
+    <div class="main_page_body">
+        <!-- 顶部导航栏2 窄时 -->
+        <div class="top_pane_body" id="toppage">
+            <div>
+                <div class="top_personal_introduct">
+                    <div class="top_personal_introduct_person">
+                        <img src="./_person_media/backgay_arch.jpg" alt="person_img"
+                            class="top_personal_introduct_personimg">
+                    </div>
+                    <div class="top_personal_introduct_personbio">
+                        <div class="top_personal_introduct_personbio_text" id="bio"></div>
+                    </div>
+                    <div class="top_personal_introduct_personprofile">
+                        <!-- 简信息 -->
+                        <div class="top_personal_introduct_current">
+                            <div class="top_personal_introduct_currentbox"></div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_work"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_work.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_edu"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_edu.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox">
+                                <div class="top_personal_introduct_currentboxin" id="profile_city"></div>
+                                <div class="top_personal_introduct_currentboxin2">
+                                    <img src="./media/site_icon/profile_city.svg"
+                                        class="top_personal_introduct_currentboxin2_img">
+                                </div>
+                            </div>
+                            <div class="top_personal_introduct_currentbox"></div>
+                        </div>
+                        <!-- skill -->
+                        <div class="top_personal_introduct_skill">
+                            <div class="top_personal_introduct_skill_langlevel"></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_nav_body">
+                    <ul class="top_nav_body_content">
+                        <li id="about">About</li>
+                        <li id="post">Post</li>
+                        <li is="commission">Commission</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        </script>
+
+        <!-- 右侧个人及其导航栏1 敞时-->
+        <div class="right_pane_body">
+            <div>
+
+
+            </div>
+        </div>
+
+        <script>
+            loadlangfile('en')
+        </script>
+    </div>
+</body>
+
+</html>
