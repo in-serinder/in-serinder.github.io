@@ -1,20 +1,3 @@
-const siteload = new SiteLoader(
-    [
-        {
-            suurces:[
-                {
-                    sourceType:'image',
-                    selectors:['.selected','.ppp']
-                },
-                {
-                    sourceType:'media',
-                    selectors:['#video']
-                }
-
-            ]
-        }
-    ]
-)
 
 
 // 语言切换

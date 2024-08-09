@@ -22,8 +22,8 @@
                 $("#toppage").css('background-image', `url(${config.personal_infomation.backgroundimg})`);
                 $("#toppage").css('background-size', 'cover');
 
-                $(".top_personal_introduct_personimg").attr('src',
-                    config.personal_infomation.profile_picture);
+                $(".top_personal_introduct_personimg").css('src', config.personal_infomation.profile_picture);
+
 
                 console.log(config.personal_infomation.backgroundimg, "\n", config.personal_infomation
                     .profile_picture)
@@ -37,7 +37,6 @@
             .catch(error => {
                 console.error('加载配置文件失败：', error);
             });
-        console.log(bio)
     </script>
 
     <!-- SRC -->
@@ -204,8 +203,9 @@
             <div>
                 <div class="top_personal_introduct">
                     <div class="top_personal_introduct_person">
-                        <img src="./_person_media/blackguy_arch.png" alt="person_img"
-                            class="top_personal_introduct_personimg">
+                        <!-- <div class="top_personal_introduct_personimg" id="profile_pitc"></div> -->
+                        <img src="./_person_media/blackguy_arch.png" alt="" class="top_personal_introduct_personimg"
+                            id="profile_pitc">
                     </div>
                     <div class="top_personal_introduct_personbio">
                         <div class="top_personal_introduct_personbio_text" id="bio"></div>
@@ -265,9 +265,7 @@
             </div>
         </div>
 
-        <script>
-            loadlangfile('en')
-        </script>
+
     </div>
 </body>
 
