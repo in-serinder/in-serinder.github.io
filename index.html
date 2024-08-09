@@ -128,7 +128,8 @@
 
                 if (cur_width >= 100) {
                     $('.load_body_div').fadeOut(1000)
-                    $('.main_page_body').fadeIn(1000)
+                    // $('.main_page_body').fadeIn(1000)
+                    loading_fade()
 
                     // console.log("sdsd")
                     // $('.main_page_body').css('display', 'block');
@@ -143,7 +144,11 @@
 
             // men
             function loading_fade() {
-                $(".load_body_div").fadeOut(1000);
+                $('.main_page_body').fadeIn(1000)
+                // $(".load_body_div").fadeOut(1000);
+                $(".top_personal_introduct").animate({
+                    'margin-top': '0px'
+                }, 800);
 
             }
 
@@ -201,7 +206,7 @@
         <!-- 顶部导航栏2 窄时 -->
         <div class="top_pane_body" id="toppage">
             <div>
-                <div class="top_personal_introduct">
+                <div class="top_personal_introduct" style="margin-top: 100px;">
                     <div class="top_personal_introduct_person">
                         <!-- <div class="top_personal_introduct_personimg" id="profile_pitc"></div> -->
                         <img src="./media/blackguy_arch.png" alt="" class="top_personal_introduct_personimg"
