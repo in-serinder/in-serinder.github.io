@@ -1,7 +1,12 @@
 .main_page_body{
-    height: 100vh;
+    display: flex;
+    position: absolute;
+    height: 100%;
     width: 100%;
-    border: solid 2px red;
+    /* border: solid 2px red; */
     display: none;
-    overflow: hidden;
+
+    top: 0px;
+    left: 0px;
+    
 }
