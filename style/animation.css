@@ -1,0 +1,36 @@
+.animation-sosmed p{
+    color: white;
+    margin-top: 6px;
+}
+
+.external-links{
+    margin-top: 21px;
+    align-items: center;
+    transition: 0.5s;
+    
+}
+.external-links img{
+    /* width: 50px; */
+    height: auto;
+    transition: 0.5s;
+}
+.external-links ul li{
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 8px 8px;
+    transition: 0.2s;
+}
+.external-links p{
+    position: absolute;
+    display: block;
+    
+    margin-top: -15px;
+    color: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.5s;
+
+    left: 50%;
+    transform: translateX(-50%);
+}

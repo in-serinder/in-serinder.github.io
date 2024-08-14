@@ -1,4 +1,17 @@
 
+// by ravimo
+
+function mouselinkenter(sosmed){
+    let destinedsosmed=document.getElementById(sosmed);
+    destinedsosmed.classList.add('animation-sosmed')
+}
+
+function mouselinklever(){
+    let allSosmed = ["csdn", "twitter",  "github", "youtube",  "email"];
+    allSosmed.forEach(element =>{
+        document.getElementById(element).className = '';
+    });
+}
 
 // 语言切换
 $(document).ready(function(){
@@ -18,3 +31,7 @@ $(document).ready(function(){
         $('#about').text(langdata.about)
     }
 })
+
+
+
+

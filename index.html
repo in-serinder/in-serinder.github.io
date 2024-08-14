@@ -9,8 +9,18 @@
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/js-yaml.min.js"></script>
     <script src="./js/addition.js"></script>
+    <script src="./js/loading.js"></script>
     <script src="./js/sl.umd.js"></script>
     <script src="./js/aos.js"></script>
+
+    <!-- SRC -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="./style/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/main_page.css">
+    <link rel="stylesheet" href="./style/mian_page_rightpane.css">
+    <link rel="stylesheet" href="./style/main_page_toppane.css">
+    <link rel="stylesheet" href="./style/load_page.css">
+    <link rel="stylesheet" href="./style/animation.css">
     <!-- script area -->
     <script>
         // ymal
@@ -23,29 +33,21 @@
                 $("#toppage").css('background-size', 'cover');
 
                 $(".top_personal_introduct_personimg").css('src', config.personal_infomation.profile_picture);
+                $(".top_personal_introduct_personimg").css('src', config.personal_infomation
+                    .profile_picture);
 
-
-                console.log(config.personal_infomation.backgroundimg, "\n", config.personal_infomation
-                    .profile_picture)
-
-
+                $('#profile_city').text(config.personal_skills.country)
                 $('#bio').text(config.personal_infomation.bio)
                 $('#profile_work').text(config.personal_skills.profession)
                 $('#profile_edu').text(config.personal_infomation.edu)
                 $('#profile_city').text(config.personal_skills.country)
             })
             .catch(error => {
-                console.error('加载配置文件失败：', error);
+                console.error('Load err：', error);
             });
     </script>
 
-    <!-- SRC -->
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link href="./style/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style/main_page.css">
-    <link rel="stylesheet" href="./style/mian_page_rightpane.css">
-    <link rel="stylesheet" href="./style/main_page_toppane.css">
-    <link rel="stylesheet" href="./style/load_page.css">
+
 
 </head>
 
@@ -102,55 +104,48 @@
             </div>
         </div>
         <script>
-            $(document).ready(function () { //cover
-
-                console.log(23)
-                $(window).on("load", function () {
-                    console.log("done")
-                }, ) //窗口进入时 
-
-
-            })
-
-
-
             const $right_process_cur = $(".load_process_body_left_index")
             const $left_process_cur = $(".load_process_body_right_index")
 
             const $right_process_text = $("#load_left_lab")
             const $left_process_text = $("#load_right_lab")
 
+            let cur_width;
+            let res_loaded = false;
+
+
+
+            $(document).ready(function () { //cover
+
+                console.log(23)
+                $(window).on("load", function () {
+                    res_loaded = true;
+                }, ) //窗口进入时 
+
+
+            })
+
 
             function update_process_lab() {
-                const cur_width = ($left_process_cur.width() / $left_process_cur.parent().width()) * 100;
+                // 进度
+                cur_width = ($left_process_cur.width() / $left_process_cur.parent().width()) * 100;
+
                 $right_process_text.text(`${cur_width.toFixed(1)}%`);
                 $left_process_text.text(`${cur_width.toFixed(1)}%`);
 
                 if (cur_width >= 100) {
                     $('.load_body_div').fadeOut(1000)
-                    // $('.main_page_body').fadeIn(1000)
-                    loading_fade()
-
-                    // console.log("sdsd")
-                    // $('.main_page_body').css('display', 'block');
-                    // $('.load_body_div').css('display', 'none');
+                    if (res_loaded)
+                        loading_fade()
                     return;
-
-
                 }
 
                 requestAnimationFrame(update_process_lab);
             }
 
             // men
-            function loading_fade() {
-                $('.main_page_body').fadeIn(1000)
-                // $(".load_body_div").fadeOut(1000);
-                $(".top_personal_introduct").animate({
-                    'margin-top': '0px'
-                }, 800);
 
-            }
+
 
 
 
@@ -163,13 +158,6 @@
                 }, 1200, 'swing');
 
 
-                $(".load_process_body_left_index").animate({
-                    width: '100%'
-                }, 1600, 'swing')
-
-                $(".load_process_body_right_index").animate({
-                    width: '100%'
-                }, 1600, 'swing')
 
 
                 $(".load_cover_pane.cover").animate({
@@ -183,9 +171,6 @@
                     color: '#ffffff',
                 }, 1400, 'swing');
 
-                update_process_lab();
-
-
 
                 $(".load_promp_text_pane").fadeOut(1000);
 
@@ -193,10 +178,38 @@
                     $(".load_promp_text_pane").fadeIn(1000);
                 }, 1200)
 
+
+                // dely
+                if (res_loaded) {
+                    $(".load_process_body_left_index").animate({
+                        width: '100%'
+                    }, 1800, 'swing')
+
+                    $(".load_process_body_right_index").animate({
+                        width: '100%'
+                    }, 1800, 'swing')
+
+                } else {
+                    $(".load_process_body_left_index").animate({
+                        width: '100%'
+                    }, 2600, 'swing')
+
+                    $(".load_process_body_right_index").animate({
+                        width: '100%'
+                    }, 2600, 'swing')
+
+                }
+
+
+
+                update_process_lab();
+
+
+
+
+
             }
         </script>
-
-
 
         <!-- 资源加载窗口结束 -->
         <!-- 主要 信息 -->
@@ -206,7 +219,7 @@
         <!-- 顶部导航栏2 窄时 -->
         <div class="top_pane_body" id="toppage">
             <div>
-                <div class="top_personal_introduct" style="margin-top: 100px;">
+                <div class="top_personal_introduct" style="margin-top: 110px;">
                     <div class="top_personal_introduct_person">
                         <!-- <div class="top_personal_introduct_personimg" id="profile_pitc"></div> -->
                         <img src="./media/blackguy_arch.png" alt="" class="top_personal_introduct_personimg"
@@ -217,82 +230,96 @@
                     </div>
                     <div class="top_personal_introduct_personprofile">
 
-                        <script>
-                            // ymal
-                            fetch('config.yaml')
-                                .then(response => response.text())
-                                .then(data => {
-                                    const config = jsyaml.load(data);
-                                    // img
-                                    $(".top_personal_introduct_personimg").css('src', config.personal_infomation
-                                        .profile_picture);
-
-                                    $('#profile_city').text(config.personal_skills.country)
-                                })
-                                .catch(error => {
-                                    console.error('加载配置文件失败：', error);
-                                });
-                        </script>
-                        <!-- 简信息 -->
-                        <div class="top_personal_introduct_current">
-                            <div class="top_personal_introduct_currentbox"></div>
-                            <div class="top_personal_introduct_currentbox">
-                                <div class="top_personal_introduct_currentboxin" id="profile_work"></div>
-                                <div class="top_personal_introduct_currentboxin2">
-                                    <img src="./media/site_icon/profile_work.svg"
-                                        class="top_personal_introduct_currentboxin2_img">
-                                </div>
-                            </div>
-                            <div class="top_personal_introduct_currentbox">
-                                <div class="top_personal_introduct_currentboxin" id="profile_edu"></div>
-                                <div class="top_personal_introduct_currentboxin2">
-                                    <img src="./media/site_icon/profile_edu.svg"
-                                        class="top_personal_introduct_currentboxin2_img">
-                                </div>
-                            </div>
-                            <div class="top_personal_introduct_currentbox">
-                                <div class="top_personal_introduct_currentboxin" id="profile_city"></div>
-                                <div class="top_personal_introduct_currentboxin2">
-                                    <img src="./media/site_icon/profile_city.svg"
-                                        class="top_personal_introduct_currentboxin2_img">
-                                </div>
-                            </div>
-                            <div class="top_personal_introduct_currentbox"></div>
-                        </div>
-                        <!-- contact -->
-                        <div class="top_personal_introduct_contact">
-                            <div class="top_personal_introduct_contact_in">
-                                <div class="top_personal_introduct_contact_sub">
-                                    <img src="./media/site_icon/GitHub.svg" alt=""
-                                        class="top_personal_introduct_contact_sub_img">
-                                </div>
-                                <div class="top_personal_introduct_contact_sub">
-                                    <img src="./media/site_icon/twitter.svg" alt=""
-                                        class="top_personal_introduct_contact_sub_img">
-                                </div>
-                                <div class="top_personal_introduct_contact_sub">
-                                    <img src="./media/site_icon/csdn.svg" alt=""
-                                        class="top_personal_introduct_contact_sub_img">
-                                </div>
-                                <div class="top_personal_introduct_contact_sub">
-                                    <img src="./media/site_icon/youtube.svg" alt=""
-                                        class="top_personal_introduct_contact_sub_img">
-                                </div>
-                                <div class="top_personal_introduct_contact_sub">
-                                    <img src="./media/site_icon/email.svg" alt=""
-                                        class="top_personal_introduct_contact_sub_img">
-                                </div>
-                            </div>
-                            <div></div>
-                        </div>
                     </div>
+                    <!-- 简信息 -->
+                    <div class="top_personal_introduct_current">
+                        <div class="top_personal_introduct_currentbox"></div>
+                        <div class="top_personal_introduct_currentbox">
+                            <div class="top_personal_introduct_currentboxin" id="profile_work"></div>
+                            <div class="top_personal_introduct_currentboxin2">
+                                <img src="./media/site_icon/profile_work.svg"
+                                    class="top_personal_introduct_currentboxin2_img">
+                            </div>
+                        </div>
+                        <div class="top_personal_introduct_currentbox">
+                            <div class="top_personal_introduct_currentboxin" id="profile_edu"></div>
+                            <div class="top_personal_introduct_currentboxin2">
+                                <img src="./media/site_icon/profile_edu.svg"
+                                    class="top_personal_introduct_currentboxin2_img">
+                            </div>
+                        </div>
+                        <div class="top_personal_introduct_currentbox">
+                            <div class="top_personal_introduct_currentboxin" id="profile_city"></div>
+                            <div class="top_personal_introduct_currentboxin2">
+                                <img src="./media/site_icon/profile_city.svg"
+                                    class="top_personal_introduct_currentboxin2_img">
+                            </div>
+                        </div>
+                        <div class="top_personal_introduct_currentbox"></div>
+                    </div>
+
+                </div>
+                <!-- contact -->
+                <div class="top_personal_introduct_contact">
+                    <div class="top_personal_introduct_contact_in">
+                        <ul class="external-links">
+                            <li><a href="" target="_blank" onmouseover="mouselinkenter()"
+                                    onmouseleave="mouselinklever()"><img src="./media/site_icon/GitHub.svg" alt="">
+                                    <p>Github</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- <div class="top_personal_introduct_contact_sub">
+                            <img src="./media/site_icon/GitHub.svg" alt=""
+                                class="top_personal_introduct_contact_sub_img" id="github_img">
+                            <div class="top_personal_introduct_contact_sub_text" id="github_text">Github</div>
+                        </div>
+                        <div class="top_personal_introduct_contact_sub">
+                            <img src="./media/site_icon/twitter.svg" alt=""
+                                class="top_personal_introduct_contact_sub_img" id="x_img">
+                            <div class="top_personal_introduct_contact_sub_text" id="x_text">Twitter</div>
+                        </div>
+                        <div class="top_personal_introduct_contact_sub">
+                            <img src="./media/site_icon/csdn.svg" alt="" class="top_personal_introduct_contact_sub_img"
+                                id="csdn_img">
+                            <div class="top_personal_introduct_contact_sub_text" id="csdn_text">CSDN</div>
+                        </div>
+                        <div class="top_personal_introduct_contact_sub">
+                            <img src="./media/site_icon/youtube.svg" alt=""
+                                class="top_personal_introduct_contact_sub_img" id="youtube_img">
+                            <div class="top_personal_introduct_contact_sub_text" id="youtube_text">Youtuebe</div>
+                        </div>
+                        <div class="top_personal_introduct_contact_sub">
+                            <img src="./media/site_icon/email.svg" alt="" class="top_personal_introduct_contact_sub_img"
+                                id="email_img">
+                            <div class="top_personal_introduct_contact_sub_text" id="email_text">Email</div>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                $('#github_img').mouseenter(function () {
+                                    $('#github_text').fadeIn(600, function () {
+                                        $(this).animate({
+                                            top: '40px'
+                                        }, 1000, 'swing')
+                                    })
+
+                                })
+                            })
+                        </script> -->
+                    </div>
+                    <div></div>
                 </div>
                 <div class="top_nav_body">
-                    <ul class="top_nav_body_content">
-                        <li id="about">About</li>
-                        <li id="post">Post</li>
-                        <li is="commission">Commission</li>
-                    </ul>
+                    <div class="top_nav_side"></div>
+                    <div class="top_nav_cent">
+                        <ul class="top_nav_body_content">
+                            <li id="about"><a href="">About</a></li>
+                            <li id="post"><a href="">Post</a></li>
+                            <li is="commission"><a href="">Commission</a> </li>
+                        </ul>
+                    </div>
+                    <div class="top_nav_side"></div>
                 </div>
             </div>
         </div>

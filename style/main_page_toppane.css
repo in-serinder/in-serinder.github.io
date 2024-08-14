@@ -3,7 +3,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    height: 340px;
+    height: 380px;
     /* background-color:#181737; */
     /* background-image: url(../media/site_media/98616585_p0.png); */
     background-size: cover;
@@ -15,11 +15,27 @@
 
 .top_nav_body{
     display: flex;
+    flex-direction: row;
+    /* height: 8%; */
+    grid-row:1 ;
+    background-color: #192845;
+    /* border: 2px solid red; */
+}
+.top_nav_side{
+    /* border: 2px blue solid; */
+    height: 100%;
+    width: 20%;
+}
+
+.top_nav_cent{
+    display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    height: 35px;
-    border: 2px solid red;
+    /* border: green; */
+    height: 100%;
+    width: 60%;
+    /* border: 2px solid yellow; */
 }
 
 .top_nav_body li{
@@ -27,9 +43,12 @@
     font-size: 0.925em;
     margin-left: 15px;
     display: inline;
+}
+
+.top_nav_body a{
     color: #f0f0f0;
     font-family: "Sans Serif" "楷体", "黑体";
-
+    text-decoration: none;
 }
 
 .top_nav_body_content{
@@ -42,7 +61,8 @@
 .top_personal_introduct{
     display: flex;
     flex-direction: column;
-    height: 300px;
+  
+    height: 75%;
 }
 
 .top_personal_introduct_person{
@@ -50,33 +70,35 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    
+    /* border: 2px solid peru; */
 
-    height: 200px;
+    height: 210px;
 }
 
 .top_personal_introduct_personimg{
     border: 1px solid  #030303;
     width: 120px;
     height: 120px;
-    margin-top: 25px;
+    margin-top: 24px;
     border-radius: 50%;
 }
 
 .top_personal_introduct_personbio{
     display: flex;
      /* border: 2px solid yellow; */
-    height: 20px;
+    height: 60px;
     justify-content: center;
-   width: auto;
+    width: auto;
 }
 
 .top_personal_introduct_personbio_text{
     display: flex;
      /* border: 2px solid yellow; */
-    height: 20px;
+    height: 100%;
+    width: 30%;
     color: #f0f0f0;
     justify-content: center;
+    overflow: hidden;
     /* width: calc(100% - 20px); */
     border-bottom: 1px solid #6b6969;
 }
@@ -137,7 +159,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-grow: 1;
+    /* grid-row: 1; */
+    height: 60px;
     /* border: 2px solid green; */
 }
 
@@ -145,19 +168,49 @@
     display: flex;
     flex-direction: row;
     width: 35%;
-    /* border: 2px solid goldenrod; */
+    border: 2px solid goldenrod;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.top_personal_introduct_contact_in ul{
+    list-style: none;
+}
+
+.top_personal_introduct_contact_in img{
+    width: 30px;
 }
 
 .top_personal_introduct_contact_sub{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border-top: 1px solid #6b6969;
     border-bottom:1px solid #6b6969;
-    /* border: 2px solid purple; */
+    border: 2px solid purple;
     height: 100%;
     width: 20%;
+    position: relative;
 }
 
+
+
 .top_personal_introduct_contact_sub_img{
-    width: 20%;
+    position: absolute;
+    /* top: 5px; */
+    width: 27px;
+}
+
+.top_personal_introduct_contact_sub_text{
+    /* display: none; */
+    position: absolute;
+    border: red solid 2px;
+    color: #f0f0f0;
+    z-index: 5;
+    height: 15px;
+    display: none;
+    top: 28px;
+    font-size: 0.625em;
+    /* top: 40px; */
 }
