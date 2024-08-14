@@ -72,7 +72,7 @@
     justify-content: center;
     /* border: 2px solid peru; */
 
-    height: 210px;
+    height: 250px;
 }
 
 .top_personal_introduct_personimg{
@@ -160,8 +160,8 @@
     flex-direction: row;
     justify-content: center;
     /* grid-row: 1; */
-    height: 60px;
-    /* border: 2px solid green; */
+    height: 65px;
+    border: 2px solid green;
 }
 
 .top_personal_introduct_contact_in{
