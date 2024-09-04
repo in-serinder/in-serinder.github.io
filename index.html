@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -13,6 +12,7 @@
     <script src="./js/loading.js"></script>
     <script src="./js/sl.umd.js"></script>
     <script src="./js/aos.js"></script>
+    <script async src="./js/config.js"></script>
 
     <!-- SRC -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
@@ -23,163 +23,10 @@
     <link rel="stylesheet" href="./style/load_page.css">
     <link rel="stylesheet" href="./style/animation.css">
     <!-- script area -->
-    <script>
-        // ymal
-        fetch('config.yaml')
-            .then(response => response.text())
-            .then(data => {
-                const config = jsyaml.load(data);
-                // img
-                $("#toppage").css('background-image', `url(${config.personal_infomation.backgroundimg})`);
-                $("#toppage").css('background-size', 'cover');
-
-                $(".top_personal_introduct_personimg").css('src', config.personal_infomation.profile_picture);
-                $(".top_personal_introduct_personimg").css('src', config.personal_infomation
-                    .profile_picture);
-
-                $('#profile_city').text(config.personal_skills.country)
-                $('#bio').text(config.personal_infomation.bio)
-                $('#profile_work').text(config.personal_skills.profession)
-                $('#profile_edu').text(config.personal_infomation.edu)
-                $('#profile_city').text(config.personal_skills.country)
-            })
-            .catch(error => {
-                console.error('Load err：', error);
-            });
-=======
-<!-- saved from url=(0065)file:///D:/Desktop/Misc.workfile/in-serinder.github.io/index.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SRC -->
-        <script src="./js/jquery-3.7.1.min.js"></script>
-        <script src="./js/js-yaml.min.js"></script>
-        <link rel="stylesheet" href="./style/load_page.css">
 
 
 
-        <!-- script -->
-        <script>
-$(document).ready(function(){
-        $(window).on('load', function(){
-            fetch('config.yaml')
-                .then(response => response.text())
-                .then(data => {
-                    const config = jsyaml.load(data);
-                    console.log(config.test.msg);
-                })
-                .catch(error => {
-                    console.error('加载配置文件失败：', error);
-                });
-        });
-    });
-        </script>
-    <title>Loading</title>
 
-</head>
-<body>
-    <!-- cover -->
-    <div class="load_body">
-
-        <div class="load_cover_pane">
-                <!-- cover_pane -->
-            <div class="load_cover_pane cover">
-                <!-- <h2 class="load_text2">Hello World !</h2> -->
-            </div>
-
-            <div class="load_text2">
-                <h2 class="load_text" style="letter-spacing: 4px;">Hello World !</h2>
-            </div>    
-        </div>
-
-    <!-- 进度条 -->
-    <!-- 仅移动index -->
-
-    <div class="load_process_body">
-        <div class="load_process_body_left">
-            <!-- left -->
-            <div class="load_process_body_left_index">
-                <div class="load_process_body_left_index_text">
-                    <label id="load_left_lab">%5</label>
-                </div>
-                <div class="load_process_body_left_index_process">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="load_process_body_right">
-            <!-- right -->
-            <div class="load_process_body_right_index">
-                <div class="load_process_body_right_index_text">
-                    <label id="load_right_lab">%5</label>
-                </div>
-
-                <div class="load_process_body_right_index_process">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <script>
-        $(document).ready(function(){ //cover
-
-            const $right_process_cur=$(".load_process_body_left_index")
-            const $left_process_cur=$(".load_process_body_right_index")
-
-            const $right_process_text=$("#load_left_lab")
-            const $left_process_text=$("#load_right_lab")
-
-
-            function update_process_lab(){
-                const cur_width=($left_process_cur.width()/$left_process_cur.parent().width())*100;
-                console.log(cur_width)
-                $right_process_text.text(`${cur_width.toFixed(1)}%`);
-                $left_process_text.text(`${cur_width.toFixed(1)}%`);
-
-                if(cur_width>=100){
-                    return;
-                }
-                requestAnimationFrame(update_process_lab);
-            }
-
-            $('.load_text').animate({
-                        color: '#ffffff',
-                        letterSpacing:'4px'
-                    }, 1200, 'swing');
-            
-            
-
-            $(window).on("load",function(){
-                $(".load_cover_pane.cover").animate({
-                    width: '100%',
-                    zIndex: '1'
-                },1200,'swing');
-
-                // 进度条
-                $(".load_process_body_left_index").animate({
-                    width:'100%'
-                },1600,'swing')
-
-                $(".load_process_body_right_index").animate({
-                    width:'100%'
-                },1600,'swing')
-
-                update_process_lab();
-        },
-   )    //窗口进入时 
-    })
-
-
-
->>>>>>> 7036aa1 (test)
-    </script>
-
-
-
-<<<<<<< HEAD
 </head>
 
 <body>
@@ -249,6 +96,7 @@ $(document).ready(function(){
 
             $(window).on("load", function () {
                 res_loaded = true;
+                setvalues()
             }, ) //窗口进入时 
 
 
@@ -469,9 +317,3 @@ $(document).ready(function(){
 </body>
 
 </html>
-=======
-    <!-- 资源加载窗口结束 -->
-    <!-- 主要 信息 -->
-
-</body></html>
->>>>>>> 7036aa1 (test)
