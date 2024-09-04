@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 personal_infomation:
   name: "Serinder"
   bio: "Eine dunkle Nacht gab mir schwarze Augen ,aber nutze ich sie Um nach Licht zu suchen"
@@ -5,14 +6,23 @@ personal_infomation:
   edu: "undergraduate"
   backgroundimg: "./media/site_media/98616585_p0.png"
 
+=======
+>>>>>>> 7036aa1 (test)
 analytics:
   baidu_trackingid: "a323f111a030b0ac376730b68825b2bd"
   google_trackingid: "G-KRGKY24GG5"
 
+<<<<<<< HEAD
 personal_skills:
   profession: "Amateur"
   ps: "Amateur /3D Modeler/ Illustrator / Frontend Developer"
   country: "China"
+=======
+
+personal_skills:
+  profession: "Amateur /3D Modeler/ Illustrator / Frontend Developer"
+  country: "china"
+>>>>>>> 7036aa1 (test)
   level_chinese: "Mother tongue"
   level_english: 3
   level_deusch: "A1"
@@ -24,18 +34,31 @@ contact:
   csdn: "afluos_serinder"
   youtube: "UC2xdZrugWjhOi5x5w26Pblg"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7036aa1 (test)
 contact_site: #Url head
   github: "https://github.com/"
   twitter: "https://x.com/"
   csdn: "https://blog.csdn.net/"
   youtube: "https://www.youtube.com/channel/"
 
+<<<<<<< HEAD
 contact_site_icon: #file source ./media/site_icon/D:\Desktop\Misc.workfile\in-serinder.github.io_try\_person_media\blackguy_arch.png
+=======
+contact_site_icon:  #file source ./media/site_icon/
+>>>>>>> 7036aa1 (test)
   github: "GitHub.svg"
   twitter: "twitter.svg"
   csdn: "csdn.svg"
   youtube: "youtube.svg"
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7036aa1 (test)
 business_status:
   IS_commission: false
   CAD: false
@@ -45,4 +68,8 @@ business_status:
   deutsch: false
 
 test:
+<<<<<<< HEAD
   msg: "True dude/"
+=======
+  msg: "True dude/"
+>>>>>>> 7036aa1 (test)
