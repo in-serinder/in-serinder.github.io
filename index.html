@@ -3,316 +3,70 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pacman.css">
+    <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+    <style>
+        body {
+            display: flex;
+            /* width: 100vh; */
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid black; */
+        }
+    </style>
+    <!-- script -->
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+    <script src="./main.js"></script>
+    <!-- <script>
+        console.log(document.readyState)
+    </script> -->
     <title>Welcome</title>
-    <script src="./js/jquery-3.7.1.min.js"></script>
-    <script src="./js/js-yaml.min.js"></script>
-    <script src="./js/addition.js"></script>
-    <script src="./js/loading.js"></script>
-    <script src="./js/sl.umd.js"></script>
-    <script src="./js/aos.js"></script>
-    <script async src="./js/config.js"></script>
-
-    <!-- SRC -->
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link href="./style/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style/main_page.css">
-    <link rel="stylesheet" href="./style/mian_page_rightpane.css">
-    <link rel="stylesheet" href="./style/main_page_toppane.css">
-    <link rel="stylesheet" href="./style/load_page.css">
-    <link rel="stylesheet" href="./style/animation.css">
-    <!-- script area -->
-
-
-
-
 </head>
 
 <body>
-    <div class="load_body_div">
-        <!-- cover -->
-        <div class="load_body">
+    <div class="board">
+        <div class="title">
+            <h3>
+                <!-- Title -->
+                <span style="font-size: 1.75em;">
+                    Welcome
+                </span>
+                <br>
+                <!-- Content -->
+                <span>
+                    The Website is under construction.
+                </span>
+                <br>
+                <span>
+                    Please come back later.
+                </span>
+            </h3>
 
-            <div class="load_cover_pane">
-                <!-- cover_pane -->
-                <div class="load_cover_pane cover">
-                    <!-- <h2 class="load_text2">Hello World !</h2> -->
-                </div>
-
-                <div class="load_text2">
-                    <h2 class="load_text" style="letter-spacing: 4px;">Hello World !</h2>
-                </div>
-            </div>
-
-            <!-- loadste -->
-            <div class="load_promp_text_pane_PARENT">
-                <div class="load_promp_text_pane">
-                    Resources loading...
-                </div>
-            </div>
-            <!-- 进度条 -->
-            <!-- 仅移动index -->
-
-            <div class="load_process_body">
-                <div class="load_process_body_left">
-                    <!-- left -->
-                    <div class="load_process_body_left_index">
-                        <div class="load_process_body_left_index_text">
-                            <label id="load_left_lab">%5</label>
-                        </div>
-                        <div class="load_process_body_left_index_process">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="load_process_body_right">
-                    <!-- right -->
-                    <div class="load_process_body_right_index">
-                        <div class="load_process_body_right_index_text">
-                            <label id="load_right_lab">%5</label>
-                        </div>
-
-                        <div class="load_process_body_right_index_process">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <script>
-            const $right_process_cur = $(".load_process_body_left_index")
-            const $left_process_cur = $(".load_process_body_right_index")
-
-            const $right_process_text = $("#load_left_lab")
-            const $left_process_text = $("#load_right_lab")
-
-            let cur_width;
-            let res_loaded = false;
-
-
-
-
-            $(window).on("load", function () {
-                res_loaded = true;
-                setvalues()
-            }, ) //窗口进入时 
-
-
-
-
-            function update_process_lab() {
-                // 进度
-                cur_width = ($left_process_cur.width() / $left_process_cur.parent().width()) * 100;
-
-                $right_process_text.text(`${cur_width.toFixed(1)}%`);
-                $left_process_text.text(`${cur_width.toFixed(1)}%`);
-
-                if (cur_width >= 100) {
-                    $('.load_body_div').fadeOut(1000)
-                    if (res_loaded)
-                        loading_fade()
-                    return;
-                }
-
-                requestAnimationFrame(update_process_lab);
-            }
-
-            // men
-
-
-
-
-
-
-            window.onload = function () {
-
-                $(".load_cover_pane.cover").animate({
-                    width: '100%',
-                    zIndex: '1'
-                }, 1200, 'swing');
-
-
-
-
-                $(".load_cover_pane.cover").animate({
-                    width: '100%',
-                    zIndex: '1'
-                }, 1200, 'swing');
-
-
-                $('.load_text').animate({
-                    letterSpacing: '5px',
-                    color: '#ffffff',
-                }, 1400, 'swing');
-
-
-                $(".load_promp_text_pane").fadeOut(1000);
-
-                setTimeout(function () {
-                    $(".load_promp_text_pane").fadeIn(1000);
-                }, 1200)
-
-
-                // dely
-                if (res_loaded) {
-                    $(".load_process_body_left_index").animate({
-                        width: '100%'
-                    }, 1800, 'swing')
-
-                    $(".load_process_body_right_index").animate({
-                        width: '100%'
-                    }, 1800, 'swing')
-
-                } else {
-                    $(".load_process_body_left_index").animate({
-                        width: '100%'
-                    }, 2600, 'swing')
-
-                    $(".load_process_body_right_index").animate({
-                        width: '100%'
-                    }, 2600, 'swing')
-
-                }
-
-
-
-                update_process_lab();
-
-
-
-
-
-            }
-        </script>
-
-        <!-- 资源加载窗口结束 -->
-        <!-- 主要 信息 -->
-    </div>
-
-    <div class="main_page_body">
-        <!-- 顶部导航栏2 窄时 -->
-        <div class="top_pane_body" id="toppage">
-            <div>
-                <div class="top_personal_introduct" style="margin-top: 110px;">
-                    <div class="top_personal_introduct_person">
-                        <!-- <div class="top_personal_introduct_personimg" id="profile_pitc"></div> -->
-                        <img src="./media/blackguy_arch.png" alt="" class="top_personal_introduct_personimg"
-                            id="profile_pitc">
-                    </div>
-                    <div class="top_personal_introduct_personbio">
-                        <div class="top_personal_introduct_personbio_text" id="bio"></div>
-                    </div>
-                    <div class="top_personal_introduct_personprofile">
-
-                    </div>
-                    <!-- 简信息 -->
-                    <div class="top_personal_introduct_current">
-                        <div class="top_personal_introduct_currentbox"></div>
-                        <div class="top_personal_introduct_currentbox">
-                            <div class="top_personal_introduct_currentboxin" id="profile_work"></div>
-                            <div class="top_personal_introduct_currentboxin2">
-                                <img src="./media/site_icon/profile_work.svg"
-                                    class="top_personal_introduct_currentboxin2_img">
-                            </div>
-                        </div>
-                        <div class="top_personal_introduct_currentbox">
-                            <div class="top_personal_introduct_currentboxin" id="profile_edu"></div>
-                            <div class="top_personal_introduct_currentboxin2">
-                                <img src="./media/site_icon/profile_edu.svg"
-                                    class="top_personal_introduct_currentboxin2_img">
-                            </div>
-                        </div>
-                        <div class="top_personal_introduct_currentbox">
-                            <div class="top_personal_introduct_currentboxin" id="profile_city"></div>
-                            <div class="top_personal_introduct_currentboxin2">
-                                <img src="./media/site_icon/profile_city.svg"
-                                    class="top_personal_introduct_currentboxin2_img">
-                            </div>
-                        </div>
-                        <div class="top_personal_introduct_currentbox"></div>
-                    </div>
-
-                </div>
-                <!-- contact -->
-                <div class="top_personal_introduct_contact">
-                    <div class="top_personal_introduct_contact_in">
-                        <ul class="external-links">
-                            <li><a href="" target="_blank"><img src="./media/site_icon/GitHub.svg" alt="">
-                                    <p>Github</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <!-- <div class="top_personal_introduct_contact_sub">
-                            <img src="./media/site_icon/GitHub.svg" alt=""
-                                class="top_personal_introduct_contact_sub_img" id="github_img">
-                            <div class="top_personal_introduct_contact_sub_text" id="github_text">Github</div>
-                        </div>
-                        <div class="top_personal_introduct_contact_sub">
-                            <img src="./media/site_icon/twitter.svg" alt=""
-                                class="top_personal_introduct_contact_sub_img" id="x_img">
-                            <div class="top_personal_introduct_contact_sub_text" id="x_text">Twitter</div>
-                        </div>
-                        <div class="top_personal_introduct_contact_sub">
-                            <img src="./media/site_icon/csdn.svg" alt="" class="top_personal_introduct_contact_sub_img"
-                                id="csdn_img">
-                            <div class="top_personal_introduct_contact_sub_text" id="csdn_text">CSDN</div>
-                        </div>
-                        <div class="top_personal_introduct_contact_sub">
-                            <img src="./media/site_icon/youtube.svg" alt=""
-                                class="top_personal_introduct_contact_sub_img" id="youtube_img">
-                            <div class="top_personal_introduct_contact_sub_text" id="youtube_text">Youtuebe</div>
-                        </div>
-                        <div class="top_personal_introduct_contact_sub">
-                            <img src="./media/site_icon/email.svg" alt="" class="top_personal_introduct_contact_sub_img"
-                                id="email_img">
-                            <div class="top_personal_introduct_contact_sub_text" id="email_text">Email</div>
-                        </div>
-                        <script>
-                            $(document).ready(function () {
-                                $('#github_img').mouseenter(function () {
-                                    $('#github_text').fadeIn(600, function () {
-                                        $(this).animate({
-                                            top: '40px'
-                                        }, 1000, 'swing')
-                                    })
-
-                                })
-                            })
-                        </script> -->
-                    </div>
-                    <div></div>
-                </div>
-                <div class="top_nav_body">
-                    <div class="top_nav_side"></div>
-                    <div class="top_nav_cent">
-                        <ul>
-                            <li id="about"><a href="">About</a></li>
-                            <li id="post"><a href="">Post</a></li>
-                            <li is="commission"><a href="">Commission</a> </li>
-
-                            <span></span>
-                        </ul>
-                    </div>
-                    <div class="top_nav_side"></div>
-                </div>
-            </div>
+        <!-- img -->
+        <div class="image">
+            <!-- <img src="./image/126872185_p0.png" alt="" id="image"> -->
+            <img src="" alt="" id="image">
+            <script>
+                // window.onload = function () {
+                //     SelectImage();
+                //     console.log("Image loaded");
+                // }
+            </script>
         </div>
-        <script>
-
-        </script>
-
-        <!-- 右侧个人及其导航栏1 敞时-->
-        <div class="right_pane_body">
-            <div>
-
-
-            </div>
+        <div class="other">
+            <div>404</div>
+            <span>Expected to be completed before August 2025</span>
+            <span id="date"> But Now:</span>
+            <!-- <div class="pacman">
+                <div class="pacman__eye"></div>
+                <div class="pacman__mouth"></div>
+            </div> -->
         </div>
-
-
     </div>
 </body>
 
