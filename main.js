@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload=function(){
         SelectImage();
         // GetDate();
-        GetGMTDate();
+        // GetGMTDate();
         NProgress.done();
         
-        
+        setInterval(GetGMTDate, 1000);
     }
 });
 
@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+
+   
 
 
 
