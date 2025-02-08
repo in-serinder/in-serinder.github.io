@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.onload=function(){
         SelectImage();
-        GetDate();
+        // GetDate();
+        GetGMTDate();
         NProgress.done();
         
         
@@ -39,11 +40,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function GetDate(){
        const date=new Date();
        const year=date.getFullYear();
-       const month=date.getMonth();
-       const day=date.getDay();
+       const month=date.getMonth()+1;
+       const day=date.getDate();
 
     document.getElementById('date').innerHTML="But Now: "+year+"-"+month+"-"+day
        
+    }
+
+    function GetGMTDate() {
+        const date = new Date();
+        const gmtDate = date.toUTCString(); 
+    
+        document.getElementById('gmt-date').innerHTML ="But Now :  "+ gmtDate; 
     }
 
 
