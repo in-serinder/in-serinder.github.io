@@ -12,13 +12,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get file list
-        id: get_post_list
+        id: get_root_file_list
         run: |
-          find . -type f -not -path './.git/*' -not -path './.github/*' > post_list.txt
-          echo "::set-output name=file_list::$(cat post_list.txt)"
+          find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
-      - name: Upload file list
-        uses: actions/upload-artifact@v4
+      # - name: Upload file list
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: root_list
+      #     path: root_list.txt
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: post_list
-          path: post_list.txt
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./avge
