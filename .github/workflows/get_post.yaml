@@ -18,7 +18,7 @@ jobs:
           echo "::set-output name=file_list::$(cat post_list.txt)"
 
       - name: Upload file list
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: post_list
           path: post_list.txt
