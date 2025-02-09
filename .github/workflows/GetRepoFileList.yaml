@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # folder: ./avge
+          folder: ./avge
           branch: gh-pages # The branch the action should deploy to.
           clean: false
           force: true
