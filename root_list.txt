@@ -6,6 +6,8 @@
 ./image/124907858_p0.jpg
 ./image/124907858_p2.jpg
 ./avge/root_list.txt
+./post_/About.md
+./post_/Exmaple.md
 ./pacman.css
 ./style.css
 ./index.html
