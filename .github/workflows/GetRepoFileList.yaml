@@ -1,4 +1,4 @@
-name: get_post
+name: GetRepofiles
 on:
   push:
     branches: [master]
@@ -14,7 +14,7 @@ jobs:
       - name: Get file list
         id: get_root_file_list
         run: |
-          find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
+          find . -type f -not -path './.git/*' -not -path './.github/*' > root_list.txt
 
       - name: Clean up worktree
         run: |
@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./avge
+          # folder: ./avge
           branch: gh-pages # The branch the action should deploy to.
           clean: false
           force: true
