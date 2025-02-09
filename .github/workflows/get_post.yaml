@@ -1,0 +1,24 @@
+name: get_post
+on:
+  push:
+    branches: [master]
+    workflow_dispatch:
+
+jobs:
+  get_post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get file list
+        id: get_post_list
+        run: |
+          find . -type f -not -path './.git/*' -not -path './.github/*' > post_list.txt
+          echo "::set-output name=file_list::$(cat post_list.txt)"
+
+      - name: Upload file list
+        uses: actions/upload-artifact@v3
+        with:
+          name: post_list
+          path: post_list.txt
