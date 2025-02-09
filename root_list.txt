@@ -5,7 +5,6 @@
 ./image/124907858_p1.jpg
 ./image/124907858_p0.jpg
 ./image/124907858_p2.jpg
-./avge/.env
 ./avge/root_list.txt
 ./pacman.css
 ./style.css
