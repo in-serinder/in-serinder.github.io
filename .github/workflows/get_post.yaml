@@ -16,18 +16,18 @@ jobs:
         run: |
           find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
-      # - name: Clean up worktree
-      #   run: |
-      #     git worktree prune
-      #     git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
-      #     git worktree list | awk '{print $1}' | xargs -I {} git worktree remove --force {} || true
+      - name: Clean up worktree
+        run: |
+          git worktree prune
+          git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
+          git worktree list | awk '{print $1}' | xargs -I {} git worktree remove --force {} || true
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./avge
-          branch: master
-          clean: true
+          branch: gh-pages # The branch the action should deploy to.
+          clean: false
           force: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

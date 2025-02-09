@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pacman.css">
+    <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+    <link rel="icon" href="./image/icon-menu-developing.svg" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            /* width: 100vh; */
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid black; */
+        }
+    </style>
+    <!-- script -->
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+    <script src="./main.js"></script>
+    <!-- <script>
+        console.log(document.readyState)
+    </script> -->
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div class="board">
+        <div class="title">
+            <h3>
+                <!-- Title -->
+                <span style="font-size: 1.75em;">
+                    Welcome
+                </span>
+                <br>
+                <!-- Content -->
+                <span>
+                    The Website is under construction.
+                </span>
+                <br>
+                <span>
+                    Please come back later.
+                </span>
+            </h3>
+
+        </div>
+        <!-- img -->
+        <div class="image">
+            <!-- <img src="./image/126872185_p0.png" alt="" id="image"> -->
+            <img src="" alt="" id="image" onclick="SelectImage()">
+            <script>
+                // window.onload = function () {
+                //     SelectImage();
+                //     console.log("Image loaded");
+                // }
+            </script>
+        </div>
+        <div class="other">
+            <div>404</div>
+            <span>Expected to be completed before August 2025</span>
+            <span id="gmt-date"> But Now:</span>
+            <!-- <div class="pacman">
+                <div class="pacman__eye"></div>
+                <div class="pacman__mouth"></div>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
