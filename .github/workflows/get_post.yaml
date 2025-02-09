@@ -20,7 +20,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./avge
-          branch: gh-pages
+          branch: master
           clean: true
           force: true
         env:
