@@ -16,10 +16,11 @@ jobs:
         run: |
           find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
-      - name: Clean up worktree
-        run: |
-          git worktree prune
-          git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
+      # - name: Clean up worktree
+      #   run: |
+      #     git worktree prune
+      #     git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
+      #     git worktree list | awk '{print $1}' | xargs -I {} git worktree remove --force {} || true
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
