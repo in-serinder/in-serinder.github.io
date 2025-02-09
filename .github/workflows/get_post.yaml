@@ -2,7 +2,7 @@ name: get_post
 on:
   push:
     branches: [master]
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   get_post:
@@ -16,14 +16,10 @@ jobs:
         run: |
           find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
-      # - name: Upload file list
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: root_list
-      #     path: root_list.txt
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./avge
+          folder: ./avge
+          branch: gh-pages
+          clean: true
+          force: true
