@@ -11,18 +11,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create avge folder
-        run: mkdir -p avge
+      - name: Get file list
+        id: get_root_file_list
+        run: |
+          find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
       - name: Clean up worktree
         run: |
           git worktree prune
           git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
-
-      - name: Get file list
-        id: get_root_file_list
-        run: |
-          find . -type f -not -path './.git/*' -not -path './.github/*' > avge/root_list.txt
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
