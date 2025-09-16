@@ -1,108 +1,30 @@
-.board{
+body {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
 
+.redirect-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
     text-align: center;
-    border: 2px solid #3a3434;
-    width: 400px;
-    height: 700px;
-    border-bottom: #3a3434 4px solid;
-    box-shadow: 2px 2px 2px 2px #3a3434;
-    transition: box-shadow 0.5s;
-    
+    /* background-color: aqua; */
+    padding: 20px;
 }
 
-/* .board :hover{
-    box-shadow: 6px 2px 2px 2px #3a3434;
-} */
-
-.title{
+.redirect-container div{
     display: flex;
     flex-direction: column;
-    line-height: 2;
-}
-
-.title span{
-    margin-top: 10px;
-    position: relative;
-    display: fit-content;
-    justify-content: center;
-    align-items: center;
-    height: 100%;;
-    /* width: 100%; */
-    
-}
-
-.title span::after{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: #3a3434;
-    transition: width 0.5s;
-}
-
-.title span:hover::after{
-    width: 100%;
-}
-
-/* 75% avb */
-
-.image{
-    display: flex;
-    /* border: 2px solid red; */
-    width: 100%;
-    height: 40%; 
-    
-    justify-content: center;
     align-items: center;
 }
 
-.image img{
-
-    width: 250px;
-    /* height: 100%; */
-}
-
-.other{
-    display: flex;
-    flex-direction: column;
-    height: 25%;
-    /* border: red 2px solid; */
-    line-height: 2;
-}
-.other div{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    height: 85%;
-    font-size: 5.7em;
-    font-weight: bold;
-    justify-content: center;
-    /* border: 2px solid green; */
-}
-.other span{
-    display: fit-content;
-    margin-top: 10px;
-    position: relative;
-    
-    justify-content: center;
-    align-items: center;
-    height: 100%;;
-}
-
-.other span::after{
-    content: "";
-    display: fit-content;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: #3a3434;
-    transition: width 1s;
-}
-
-.other span:hover::after{
-    width: 100%;
+.redirect-container img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    /* border-radius: 50%; */
 }
