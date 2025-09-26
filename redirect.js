@@ -1,11 +1,32 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    redirectToTargetPage();
+});
+
+
+
 function redirectToTargetPage(){
 
-    // 获取路由解析
-     const urlParams = new URLSearchParams(window.location.search);
-     const targetPage = urlParams.get('page');
-     console.log("404",targetPage);
+    const currentRoutePath = window.location.pathname;
+    const targetRouterPath = (`http://8.130.191.142${currentRoutePath}`)
 
-    
+    console.log(targetRouterPath);
+
+    const redirectAvailable = document.getElementById('Redirect_avable');
+    const targetRouter = document.getElementById('target-router');
+
+    targetRouter.textContent = targetRouterPath;
+
+    // 重定向倒计时
+    let redirectCount = 3;
+    const redirectInterval = setInterval(() => {
+    redirectCount--;
+    redirectAvailable.textContent = redirectCount;
+    if (redirectCount <= 0) {
+          clearInterval(redirectInterval);
+          window.location.href = targetRouterPath;
+        }
+    }, 1000);
 
 
 }
