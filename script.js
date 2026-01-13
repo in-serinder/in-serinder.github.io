@@ -16,7 +16,7 @@ function redirectToTargetPage(){
         redirectAvailable.textContent = redirectCount;
         if (redirectCount <= 0) {
             clearInterval(redirectInterval);
-            window.location.href = 'http://8.130.191.142';
+            window.location.href = 'http://argovict.asia';
         }
     }, 1000);
 }
