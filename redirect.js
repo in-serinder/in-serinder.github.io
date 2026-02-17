@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function redirectToTargetPage(){
 
     const currentRoutePath = window.location.pathname;
-    const targetRouterPath = (`http://argovict.asia${currentRoutePath}`)
+    //const targetRouterPath = (`http://argovict.asia${currentRoutePath}`)
+    const targetRouterPath = (`http://8.130.191.142${currentRoutePath}`)
 
     console.log(targetRouterPath);
 
